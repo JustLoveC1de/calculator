@@ -9,6 +9,7 @@ def result_calculate(size: int, lights: int, device: int):
     home_coef: int = 100
     light_coef: float = 0.04
     devices_coef: int = 5   
+    print(size, lights, device)
     return size * home_coef + lights * light_coef + device * devices_coef 
 
 

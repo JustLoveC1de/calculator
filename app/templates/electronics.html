@@ -23,17 +23,17 @@
     <ul class="list" id="list">
       <!-- Задание №3 -->
       <li class="list__item">
-        <a href="{{Укажите маршрут}}">
+        <a href="{{ url_for("end", size=size, lights=lights, device=4) }}">
           <img class="item__img" src="../static/img/battery.svg" alt="battery">
           <span>3-5 прибора</span></a>
       </li>
       <li class="list__item">
-        <a href="{{Укажите маршрут}}">
+        <a href="{{ url_for("end", size=size, lights=lights, device=7) }}">
           <img class="item__img" src="../static/img/battery.svg" alt="battery">
           <span>6-8 приборов</span></a>
       </li>
       <li class="list__item">
-        <a href="{{Укажите маршрут}}">
+        <a href="{{ url_for("end", size=size, lights=lights, device=10) }}">
           <img class="item__img" src="../static/img/battery.svg" alt="battery">
           <span>10 и более</span></a>
       </li>

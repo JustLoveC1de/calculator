@@ -6,9 +6,9 @@ from flask import (
 
 def result_calculate(size: int, lights: int, device: int):
     #Переменные для энергозатратности приборов
-    home_coef = 100
-    light_coef = 0.04
-    devices_coef = 5   
+    home_coef: int = 100
+    light_coef: float = 0.04
+    devices_coef: int = 5   
     return size * home_coef + lights * light_coef + device * devices_coef 
 
 
@@ -25,9 +25,9 @@ def make_app() -> Flask:
     @app.route('/<int:size>')
     def lights(size):
         return render_template(
-                                'lights.html', 
-                                size=size
-                               )
+            'lights.html', 
+            size = size
+        )
 
     #Третья страница
     @app.route('/<int:size>/<int:lights>')

@@ -37,6 +37,11 @@
           <img class="item__img" src="../static/img/battery.svg" alt="battery">
           <span>10 и более</span></a>
       </li>
+      <li class="list__item">
+        <a href="{{ url_for("end", size=size, lights=lights, device=2.15) }}">
+          <img class="item__img" src="../static/img/eco.jpg" alt="battery">
+          <span>Наша экологичная сборка!</span></a>
+      </li>
       <!--  -->
     </ul>
     {% endblock %}

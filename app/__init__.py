@@ -23,7 +23,7 @@ def make_app() -> Flask:
         return render_template('index.html')
 
     #Вторая страница
-    @app.route('/<int:size>')
+    @app.route('/<float:size>')
     def lights(size):
         return render_template(
             'lights.html', 
@@ -31,7 +31,7 @@ def make_app() -> Flask:
         )
 
     #Третья страница
-    @app.route('/<int:size>/<int:lights>')
+    @app.route('/<float:size>/<float:lights>')
     def electronics(size: int, lights: int):
         return render_template(
             'electronics.html',
@@ -40,7 +40,7 @@ def make_app() -> Flask:
         )
 
     #Расчет
-    @app.route('/<int:size>/<int:lights>/<int:device>')
+    @app.route('/<float:size>/<float:lights>/<float:device>')
     def end(size: int, lights: int, device: int):
         return render_template('end.html', 
             result=result_calculate(

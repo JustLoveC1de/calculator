@@ -37,6 +37,11 @@
           <img class="item__img" src="../static/img/light.svg" alt="light">
           <span>8 и более</span></a>
       </li>
+      <li class="list__item">
+        <a href="{{ url_for("electronics", size=size, lights=1.25) }}">
+          <img class="item__img" src="../static/img/eco_light.svg" alt="light">
+          <span>Наше экологичное освещение!</span></a>
+      </li>
     </ul>
     {% endblock %}
   </main>

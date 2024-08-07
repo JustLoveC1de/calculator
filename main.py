@@ -1,45 +1,52 @@
 #Импорт
-from flask import Flask, render_template
+from flask import (
+    Flask, 
+    render_template
+)
 
-
-app = Flask(__name__)
-
-def result_calculate(size, lights, device):
+def result_calculate(size: int, lights: int, device: int):
     #Переменные для энергозатратности приборов
     home_coef = 100
     light_coef = 0.04
     devices_coef = 5   
     return size * home_coef + lights * light_coef + device * devices_coef 
 
-#Первая страница
-@app.route('/')
-def index():
-    return render_template('index.html')
 
-#Вторая страница
-@app.route('/<size>')
-def lights(size):
-    return render_template(
-                            'lights.html', 
-                            size=size
-                           )
+def make_app() -> Flask:
+    
+    app: Flask = Flask(__name__)
 
-#Третья страница
-@app.route('/<size>/<lights>')
-def electronics(size, lights):
-    return render_template(
-                            'electronics.html',
-                            size = size, 
-                            lights = lights                           
-                           )
+    #Первая страница
+    @app.route('/')
+    def index():
+        return render_template('index.html')
 
-#Расчет
-@app.route('/<size>/<lights>/<device>')
-def end(size, lights, device):
-    return render_template('end.html', 
-                            result=result_calculate(int(size),
-                                                    int(lights), 
-                                                    int(device)
-                                                    )
-                        )
-app.run(debug=True)
+    #Вторая страница
+    @app.route('/<int:size>')
+    def lights(size):
+        return render_template(
+                                'lights.html', 
+                                size=size
+                               )
+
+    #Третья страница
+    @app.route('/<int:size>/<int:lights>')
+    def electronics(size: int, lights: int):
+        return render_template(
+            'electronics.html',
+            size = size, 
+            lights = lights                           
+        )
+
+    #Расчет
+    @app.route('/<int:size>/<int:lights>/<int:device>')
+    def end(size: int, lights: int, device: int):
+        return render_template('end.html', 
+            result=result_calculate(
+                size,
+                lights, 
+                device
+            )
+        )
+
+    return app
